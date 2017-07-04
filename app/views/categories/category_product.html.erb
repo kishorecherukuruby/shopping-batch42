@@ -1,0 +1,7 @@
+
+<% @products.each do |product| %>
+<p>Name : <%= product.name%>
+Price: <%= product.price %></p>
+<% end %>
+
+<%= link_to "Add Products", new_product_url(@category), remote: true %>

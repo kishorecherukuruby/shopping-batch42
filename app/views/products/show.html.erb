@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @product.quantity %>
+</p>
+
+<p>
+<strong>Category</strong>
+<%= @product.category.name %>
+</p>
+
+<% if @product.promo_code %>
+	<strong>Promo Code</strong><br/>
+	<p>Code: <%= @product.promo_code.code %><br/>
+	valid_from: <%= @product.promo_code.valid_from %><br/>
+	valid_till: <%= @product.promo_code.valid_till %><br/>
+	</p>
+<% end %>
+
+
+<% unless @product.promo_code %>
+        <td><%= link_to "Add Promocode",promo_code_product_path(@product) %></td>
+<% end %><br/><br/>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

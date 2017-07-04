@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  valid_from: MyString
+  valid_till: MyString
+  product: one
+
+two:
+  code: MyString
+  valid_from: MyString
+  valid_till: MyString
+  product: two

@@ -1,0 +1,16 @@
+<%= f.fields_for :products do |ff| %>
+  <h1>Add Product</h1>
+    <div class="field">
+      <%= ff.label :name %>
+      <%= ff.text_field :name %>
+    </div>
+    <div class="field">
+      <%= ff.label :price %>
+      <%= ff.number_field :price %>
+    </div>
+    <div class="field">
+      <%= ff.label :quantity %>
+      <%= ff.number_field :quantity %>
+    </div>
+
+  <% end %>
