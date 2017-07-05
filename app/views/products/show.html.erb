@@ -23,8 +23,8 @@
 <% if @product.promo_code %>
 	<strong>Promo Code</strong><br/>
 	<p>Code: <%= @product.promo_code.code %><br/>
-	valid_from: <%= @product.promo_code.valid_from %><br/>
-	valid_till: <%= @product.promo_code.valid_till %><br/>
+	valid_from: <%= @product.promo_code.valid_from.to_date %><br/>
+	valid_till: <%= @product.promo_code.valid_till.to_date %><br/>
 	</p>
 <% end %>
 

@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
-	validates :name , presence: true
+	#validates :name , presence: true
 	belongs_to :category, optional: true
+	belongs_to :brand , optional: true
 	has_one :promo_code
 
 	def self.assign_promo_code(id)

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :brands
   resources :products do
     member do
       get "promo_code" , as: "promo_code"
