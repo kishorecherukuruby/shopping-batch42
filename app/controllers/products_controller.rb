@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /products/1
@@ -40,6 +40,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        ProductsMailer.products_mailer(current_user,@product).deliver
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -81,6 +82,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :quantity,:category_id)
+      params.require(:product).permit(:name, :price, :quantity,:category_id,:avatar)
     end
 end
